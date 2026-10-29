@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+/* ── Light theme ─────────────────────────────────────────────────────────── */
+:root {
+  --bg:           #F8F9FC;
+  --surface:      #FFFFFF;
+  --surface-2:    #F1F3F9;
+  --surface-3:    #E5E8F2;
+  --text:         #0F172A;
+  --text-muted:   #64748B;
+  --text-faint:   #94A3B8;
+  --accent:       #4F46E5;
+  --accent-hover: #4338CA;
+  --accent-light: #EEF2FF;
+  --accent-dim:   #818CF8;
+  --border:       #E2E8F0;
+  --border-2:     #CBD5E1;
+  --card-glow:    0 10px 25px -5px rgba(79, 70, 229, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  --header-bg:    rgba(255, 255, 255, 0.88);
+  --skeleton-bg:  #0B0F19;
+}
+
+/* ── Dark theme (sleek Sixth-Sense style) ───────────────────────────────── */
+html.dark {
+  --bg:           #0B0E17;
+  --surface:      #121624;
+  --surface-2:    #181E31;
+  --surface-3:    #232B45;
+  --text:         #F8FAFC;
+  --text-muted:   #94A3B8;
+  --text-faint:   #64748B;
+  --accent:       #6366F1;
+  --accent-hover: #818CF8;
+  --accent-light: #1E1B4B;
+  --accent-dim:   #4F46E5;
+  --border:       #1E2640;
+  --border-2:     #2D3758;
+  --card-glow:    0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 20px -2px rgba(99, 102, 241, 0.08);
+  --header-bg:    rgba(14, 18, 30, 0.88);
+  --skeleton-bg:  #070A12;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.55;
+  transition: background-color 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Subtle grid backdrop */
+.grid-bg {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 1px, transparent 1px);
+}
+
+html.dark .grid-bg {
+  background-image: 
+    linear-gradient(to right, rgba(99, 102, 241, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(99, 102, 241, 0.07) 1px, transparent 1px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
